@@ -1,0 +1,12 @@
+*.js
+*.d.ts
+node_modules
+exports
+local
+
+# Lint config
+!.eslintrc.js
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
