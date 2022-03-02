@@ -2,12 +2,12 @@
 
 export type AccountList = {
     // label: accountnumber
-    [key: string]: string,
+    [name: string]: string,
 };
 
 export type GroupList = {
     // name: guid
-    [key: string]: string,
+    [name: string]: string,
 };
 
 export type Environment = {
@@ -18,28 +18,21 @@ export type Environment = {
 
 // Inline Policy ===========================================================
 
-type Condition = {
-    [key: string]: {
-        [key: string]: string | string[],
-    },
-};
-
-type Effect = 'Allow' | 'Deny';
-
 type InlineStatement = {
     Sid?: string,
-    Effect: Effect,
+    Effect: 'Allow' | 'Deny',
     Action: string | string[],
     Resource: string | string[],
-};
-
-type InlineStatementWithCondition = InlineStatement & {
-    Condition: Condition,
+    Condition?: {
+        [operator: string]: {
+            [resource: string]: string | string[],
+        },
+    }[],
 };
 
 export type InlinePolicy = {
     Version: string,
-    Statement: (InlineStatement | InlineStatementWithCondition)[],
+    Statement: InlineStatement[],
 };
 
 // Permission Set ========================================================
@@ -50,6 +43,7 @@ type SetDefinition = {
     sessionDuration: number; // Hours
     accounts: Array<keyof AccountList>;
     groups: Array<keyof GroupList>;
+    includeAllAccounts?: boolean;
 };
 
 export type SetWithManagedPolicy = SetDefinition & {

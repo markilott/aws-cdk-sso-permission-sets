@@ -44,6 +44,20 @@ export const permisssionSets: (SetWithInlinePolicy | SetWithManagedPolicy)[] = [
         // Custom Inline Policy JSON
         inlinePolicy: examplePolicy2,
     },
+    {
+        name: 'Example_Permission_Set3',
+        description: 'For testing Permission set updates',
+        sessionDuration: 4,
+        accounts: [],
+        includeAllAccounts: true,
+        groups: [
+            'Developers',
+        ],
+        // List of AWS Managed Policy Arns
+        managedPolicies: [
+            'arn:aws:iam::aws:policy/job-function/ViewOnlyAccess',
+        ],
+    },
 ];
 
 export { environment, accountList, groupList } from './environment';

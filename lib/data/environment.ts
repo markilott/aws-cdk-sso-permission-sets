@@ -4,7 +4,7 @@ import { Environment, AccountList, GroupList } from '../types';
  * The Organisation master account (where the SSO configuration resides)
  */
 export const environment: Environment = {
-    account: '123456789',
+    account: '123456777',
     region: 'us-east-2',
     ssoInstanceArn: 'arn:aws:sso:::instance/ssoins-xxxxxxxxxxxxxxxxx',
 };
@@ -13,9 +13,9 @@ export const environment: Environment = {
  * List of Accounts where we want to assign permission sets
  */
 export const accountList: AccountList = {
-    master: '123456789',
-    prod: '123456789',
-    dev: '123456789',
+    master: '123456777',
+    prod: '123456888',
+    dev: '123456999',
 };
 
 /**

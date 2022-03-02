@@ -24,7 +24,7 @@ export class SsoMgtStack extends Stack {
         // Create and Assign Permission set for each configuration
         permisssionSets.forEach((set) => {
             const {
-                name, description, sessionDuration, accounts, groups, managedPolicies, inlinePolicy,
+                name, description, sessionDuration, accounts, groups, managedPolicies, inlinePolicy, includeAllAccounts = false,
             } = set;
 
             // Create the Permission Set
@@ -41,8 +41,11 @@ export class SsoMgtStack extends Stack {
                 value: permissionSet.attrPermissionSetArn,
             });
 
+            // Include all accounts if required
+            const setAccounts = (includeAllAccounts) ? [...Object.keys(accountList)] : [...accounts];
+
             // Assign to Accounts and Groups
-            accounts.forEach((acc) => {
+            setAccounts.forEach((acc) => {
                 const accNum = accountList[acc];
                 groups.forEach((group) => {
                     const groupId = groupList[group];
