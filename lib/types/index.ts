@@ -25,9 +25,9 @@ type InlineStatement = {
     Resource: string | string[],
     Condition?: {
         [operator: string]: {
-            [resource: string]: string | string[],
+            [resource: string]: string,
         },
-    }[],
+    },
 };
 
 export type InlinePolicy = {
