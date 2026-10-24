@@ -10,7 +10,6 @@
         "noImplicitAny": true,
         "strictNullChecks": true,
         "noImplicitThis": true,
-        "alwaysStrict": false,
         "noUnusedLocals": false,
         "noUnusedParameters": false,
         "noImplicitReturns": true,
@@ -19,6 +18,9 @@
         "inlineSources": false,
         "experimentalDecorators": true,
         "strictPropertyInitialization": false,
+        "types": [
+            "node"
+        ],
         "typeRoots": [
             "./node_modules/@types"
         ],
@@ -27,7 +29,8 @@
         "node_modules",
         "cdk.out",
         "**.js",
-        ".eslintrc.js",
-        "local"
+        "eslint.config.js",
+        "local",
+        "exports"
     ]
 }
