@@ -5,7 +5,7 @@ exports
 local
 
 # Lint config
-!.eslintrc.js
+!eslint.config.js
 
 # CDK asset staging directory
 .cdk.staging
